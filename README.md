@@ -72,7 +72,7 @@ real-estate-app/
 
 ## Features
 
-- **Responsive Design** — Optimized for desktop, tablet, and mobile devices
+- **Responsive Design** — Optimized for desktop
 - **User-Centered UI** — Designed based on HCI research and user testing
 - **Type Safety** — Built with TypeScript for robust, maintainable code
 - **Modern Stack** — Next.js for performance and developer experience
@@ -82,7 +82,6 @@ real-estate-app/
 This project prioritized **user experience research** throughout development:
 - Conducted user interviews and surveys
 - Created wireframes and high-fidelity mockups
-- Performed usability testing with target users
 - Iterated on design based on feedback
 - Documented design decisions and rationale
 
