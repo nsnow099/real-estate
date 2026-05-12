@@ -8,7 +8,6 @@ This project demonstrates the **full HCI design and development lifecycle** — 
 
 **Project Type:** Academic group project (3 contributors)  
 **Course:** COSC 3P94 - Human-Computer Interaction  
-**Duration:** Full semester  
 **Team Contribution:** Research, User Testing, UX/UI Design, Frontend Implementation
 
 ### Key Learning Outcomes
@@ -22,8 +21,8 @@ This project demonstrates the **full HCI design and development lifecycle** — 
 ## Tech Stack
 
 - **Frontend Framework:** Next.js (React)
-- **Language:** TypeScript (62.9%)
-- **Styling:** CSS (36.5%)
+- **Language:** TypeScript
+- **Styling:** CSS 
 - **Icons:** Font Awesome
 - **Node.js:** Runtime environment
 
@@ -97,5 +96,5 @@ Academic project - use for reference and educational purposes only.
 
 ---
 
-**Built by:** nsnow099 and team  
+**Built by:** Nicholas Snow, Basil Syed and Kev Akpinar 
 **Course:** COSC 3P94 at Brock University
