@@ -4,7 +4,7 @@ A modern real estate application frontend built with **TypeScript**, **React**, 
 
 ## About This Project
 
-This project demonstrates the **full HCI design and development lifecycle** — from research and user-centered design principles through to a polished, responsive frontend implementation.
+This project demonstrates the **full HCI design and development lifecycle** — from research and user-centered design principles through to a polished, responsive frontend implementation. The focus is practicing user-centered design and UI/UX, so there is not currently a backend and all data is hardcoded sample data.
 
 **Project Type:** Academic group project (3 contributors)  
 **Course:** COSC 3P94 - Human-Computer Interaction  
@@ -96,4 +96,4 @@ Academic project - use for reference and educational purposes only.
 ---
 
 **Built by:** Nicholas Snow, Basil Syed and Kev Akpinar 
-**Course:** COSC 3P94 at Brock University
+**Course:** COSC 3P94 Fall 2025 at Brock University
