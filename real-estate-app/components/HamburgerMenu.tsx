@@ -1,80 +1,49 @@
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "@/styles/HamburgerMenu.module.css";
+import LoginButton from "./LoginButton";
+
+const navItems = [
+  { key: "home", label: "Home", href: "/?view=home" },
+  { key: "gallery", label: "Listings", href: "/listingSearchPage?view=gallery" },
+  { key: "realtors", label: "Realtors", href: "/realtor?view=realtor" },
+  { key: "tools", label: "Analysis", href: "/analysisTools?view=news" },
+];
 
 const HamburgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const { view } = router.query;
-  const [currPage, setPage] = useState("");
+  const { pathname, query } = router;
+  const currentView = Array.isArray(query.view) ? query.view[0] : query.view;
 
-  useEffect(() => {
-    const { pathname, query } = router;
-  
-    if (pathname.includes("/realtor") || query.view === "realtor") {
-      setPage("realtor");
-    } else if (pathname.includes("/listingSearchPage") || query.view === "gallery") {
-      setPage("gallery");
-    } else if (pathname.includes("/analysisTools") || query.view === "news") {
-      setPage("news");
-    } else if (query.view === "map") {
-      setPage("map");
-    } else if (query.view === "advice") {
-      setPage("advice");
-    } else if (query.view === "trends") {
-      setPage("trends");
-    } else if (query.view === "calculator") {
-      setPage("calculator");
-    } else {
-      setPage("home");
-    }
-  }, [router]);
-  
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+  const activeKey = pathname === "/" || currentView === "home"
+    ? "home"
+    : pathname.includes("listingSearchPage") || currentView === "gallery" || currentView === "map"
+    ? "gallery"
+    : pathname.includes("realtor") || currentView === "realtor"
+    ? "realtors"
+    : pathname.includes("analysisTools") || ["news", "advice", "trends", "calculator"].includes(currentView || "")
+    ? "tools"
+    : "home";
 
   return (
-    <div ref={menuRef} className={styles.hamburgerContainer}>
-      {/* Hamburger Icon */}
-      <div className={styles.hamburgerIcon} onClick={() => setIsOpen(!isOpen)}>
-        ☰
+    <div className={styles.topNav}>
+      <div className={styles.brandContainer}>
+        <Link href='/?view=home'>
+          <img src="/icon-house-blue.ico" alt="Realest Estate logo" className={styles.brandLogoIcon}/>
+        </Link>
+          
       </div>
 
-      {/* Dropdown Menu */}
-      <div className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
-        <ul>
-          <li className={currPage === "home" ? styles.selected : ""}>
-            <Link href="/?view=home">Home</Link>
+      <ul className={styles.linkList}>
+        {navItems.map((item) => (
+          <li key={item.key}>
+            <Link href={item.href} className={`${styles.navLink} ${activeKey === item.key ? styles.active : ""}`}>
+              {item.label}
+            </Link>
           </li>
-          <li className={currPage === "gallery" ? styles.selected : ""}>
-            <Link href="/listingSearchPage?view=gallery">Listings</Link>
-          </li>
-          <li className={currPage === "news" ? styles.selected : ""}>
-            <Link href="/analysisTools?view=news">Analysis Tools</Link>
-          </li>
-          <li className={currPage === "realtor" ? styles.selected : ""}>
-            <Link href="/realtor?view=realtor">Realtors</Link>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
+      <LoginButton />
     </div>
   );
 };

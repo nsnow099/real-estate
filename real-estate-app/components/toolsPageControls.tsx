@@ -1,7 +1,11 @@
 import styles from "@/styles/ToolsPageControls.module.css";
 
-const ToolsPageControls = ({display, setDisplay}:any) => {
+type ToolsPageControlsProps = {
+  display: string;
+  setDisplay: (view: string) => void;
+};
 
+const ToolsPageControls = ({ display, setDisplay }: ToolsPageControlsProps) => {
     return (
         <div className={styles.controls}>
             <button className={display==='news' ? styles.leftButtonActive : styles.leftButtonInactive} onClick={() => setDisplay('news')}>

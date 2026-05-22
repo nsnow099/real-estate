@@ -1,11 +1,15 @@
 import { faFilter } from '@fortawesome/free-solid-svg-icons/faFilter';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "@/styles/listingSearchPage.css";
 import React from 'react';
 
-const ListingPageControls = ({display, setDisplay, setFiltersActive}:any) => {
+type ListingPageControlsProps = {
+  display: string;
+  setDisplay: (view: string) => void;
+  setFiltersActive: (active: boolean) => void;
+};
 
+const ListingPageControls = ({ display, setDisplay, setFiltersActive }: ListingPageControlsProps) => {
     return (
         <div className='controls'>
             <div className='search-filter-group' onClick={(e) => e.stopPropagation()}>
@@ -14,7 +18,10 @@ const ListingPageControls = ({display, setDisplay, setFiltersActive}:any) => {
                 </button>
                 <div className='search-field'>
                     <input className='search-input' type="text" placeholder="Search by location, address or postal code" name="search"></input>
-                    <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass} />
+                    <button className='search-icon-box'>
+                        <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass}/>
+                    </button>
+                    
                 </div>
             </div>
             
@@ -24,7 +31,6 @@ const ListingPageControls = ({display, setDisplay, setFiltersActive}:any) => {
             </div>
 
         </div>
-        
     )
 }
 

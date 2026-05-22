@@ -1,69 +1,73 @@
-.hamburgerContainer {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
-    width: fit-content;
-  }
+.topNav {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.brandLogoIcon {
+  width: 40px;
+  height: 40px;
+}
   
-  .hamburgerIcon {
-    font-size: 24px;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-    color: white;
-  }
+.linkList {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.linkList li {
+  margin: 0;
+}
   
-  .hamburgerIcon:hover {
-    background: rgba(255, 255, 255, 0.4);
+.navLink {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  background: rgba(45, 108, 244, 0.08);
+  color: #0f172a;
+}
+
+.active {
+  background: #04A6DC;
+  color: white;
+}
+
+.active:hover {
+  background: #04A6DC;
+  color: white;
+}
+
+@media screen and (max-width: 860px) {
+  .topNav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
   }
-  
-  .menu {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: white;
-    width: 220px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.3s ease-in-out;
+
+  .linkList {
+    justify-content: center;
+    width: 100%;
   }
-  
-  .menu.open {
-    transform: scaleY(1);
+
+  .brandContainer {
+    width: 100%;
   }
-  
-  .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu li {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .menu li:last-child {
-    border-bottom: none;
-  }
-  
-  .menu a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    display: block;
-  }
-  
-  .menu a:hover {
-    color: #007bff;
-  }
-  
-  .selected {
-    background-color: #47a4ec4b;
-  }
+}

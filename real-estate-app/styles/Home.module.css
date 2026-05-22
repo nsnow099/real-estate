@@ -1,44 +1,39 @@
-.container {
+.page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #dadada, #c3c3c3, #a7a7a7, #919191);
-  /* background: linear-gradient(to bottom, #dadada, #666); */
-  /* background-size: 100% 400%; */
-  /* animation: gradientShiftY 15s ease infinite; */
-  color: white;
-  font-family: Arial, sans-serif;
-  position: relative;
+  min-height: 100vh;
 }
 
-/* @keyframes gradientShiftY {
-  0% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
-} */
-
-
+.container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* min-height: 100vh; */
+  flex-grow: 1;
+  background: linear-gradient(to bottom, #f5f5f5, #e9e9e9, #f4f3f3, #b1b1b1);
+  color: white;
+  position: relative;
+}
 
 .header {
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
-  position: fixed;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
   top: 0;
   left: 0;
-  padding: 10px 20px;
+  padding: 16px 24px;
   z-index: 100;
-  background-color: #666666;
-  height: 60px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.main {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 20px 24px 40px;
 }
 
 /* Hamburger Menu */
@@ -49,13 +44,11 @@
 
 .backgroundPicContainer {
   overflow: clip;
-  height: 230px;
+  height: 330px;
   width: 100vw;
-  /* margin-top: -30px; */
-  top: 0px;
+  position: relative;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: -100px
 }
 
 /* Website Name Background (Moved Up Higher) */
@@ -66,10 +59,7 @@
   align-items: center;
   padding: 15px;
   background: rgba(162, 162, 162, 0.2);
-  /* background: #47a4ec; */
   border-radius: 10px;
-  margin-top: -400px;  /* Moved Up */
-  z-index: 500;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -80,12 +70,12 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 15px;
-  border-radius: 10px;
-  margin: 20px 0;
-  width: 600px; /* Increased Width */
-  top: 0px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 14px;
+  border-radius: 999px;
+  margin: 30px auto;
+  width: min(760px, 92%);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
 }
 
 /* Search Input */
@@ -103,7 +93,7 @@
   margin-left: 10px;  /* Spacing between input and button */
   padding: 10px 15px;
   font-size: 16px;
-  background: #47A4EC;
+  background: #04A6DC;
   color: white;
   border: none;
   cursor: pointer;
@@ -113,57 +103,7 @@
 }
 
 .searchButton:hover {
-  background: darkblue;
-}
-
-/* Circle Options (Increased Gaps Between Circles) */
-.circleOptions {
-  display: flex;
-  justify-content: space-between; /* Spreads Out Circles */
-  gap: 80px; /* Increased Gaps */
-  margin-top: 50px;
-  width: 60%;
-  text-align: center;
-}
-
-/* Circle Wrapper (Ensures Proper Text Alignment) */
-.circleWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Circle Container - Ensures the image is properly inside */
-.circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* Makes it a perfect circle */
-  overflow: hidden; /* Ensures image stays inside the circle */
-  border: 2px solid white; /* Thin white border */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Image Inside the Circle */
-.circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures image fills the circle while cropping */
-}
-
-/* Hover Effect - Slight Zoom */
-.circle:hover {
-  transform: scale(1.1);
-}
-
-/* Labels Below Circles (Centered Properly) */
-.circleLabel {
-  font-size: 16px;
-  margin-top: 10px;
-  text-align: center;
-  width: 100%;
+  background: #3e8cc8;
 }
 
 .title {
@@ -172,29 +112,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-
-  /* Gradient Effect */
-  /* background: linear-gradient(to right, #0aff00, #00ff88);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-
-  /* Neon Glow */
-  /* text-shadow: 0px 0px 5px rgba(0, 255, 0, 0.8),
-               0px 0px 10px rgba(0, 255, 0, 0.6),
-               0px 0px 20px rgba(0, 255, 0, 0.4),
-               0px 0px 30px rgba(0, 255, 0, 0.2); */
-
-  /* Hover Effect - Slight Expansion */
-  transition: transform 0.3s ease-in-out;
 }
-
-/*.title:hover {
-  transform: scale(1.1);
-  text-shadow: 0px 0px 10px rgba(0, 255, 0, 1),
-               0px 0px 20px rgba(0, 255, 0, 0.8),
-               0px 0px 30px rgba(0, 255, 0, 0.6),
-               0px 0px 40px rgba(0, 255, 0, 0.4);
-} */
 
 .dropdown {
   position: absolute;

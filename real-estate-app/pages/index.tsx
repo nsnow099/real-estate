@@ -37,18 +37,18 @@ const HomePage = () => {
   }, {} as Record<string, string[]>);
 
   return (
-    <>
+    <div className={styles.page}>
       <Head>
-        <title>Real Estate App</title>
+        <title>Realest Estate</title>
       </Head>
+
+      <header className={styles.header}>
+        <HamburgerMenu />
+      </header>
+
       <div className={styles.container}>
-        <header className={styles.header}>
-          <HamburgerMenu />
-          <LoginButton />
-        </header>
-        
         <div className={styles.backgroundPicContainer}>
-          <img src="/images/house-background.jpeg" />
+          <img src="/images/house-background.jpeg" alt="Modern home exterior" style={{position:'absolute'}}/>
           <div className={styles.websiteNameContainer}>
             <h1 className={styles.title}>Realest Estate</h1>
           </div>
@@ -85,37 +85,8 @@ const HomePage = () => {
             </div>
           )}
         </div>
-
-        <div className={styles.circleOptions}>
-          <div className={styles.circleWrapper}>
-            <Link href={{ pathname: "/listingSearchPage", query: { view: "gallery" } }}>
-              <div className={styles.circle}>
-                <img src="/images/gallery.jpg" alt="Listings" />
-              </div>
-            </Link>
-            <p className={styles.circleLabel}>Listings</p>
-          </div>
-
-          <div className={styles.circleWrapper}>
-            <Link href={{ pathname: "/analysisTools", query: { view: "news" } }}>
-              <div className={styles.circle}>
-                <img src="/images/tools.jpg" alt="Analysis Tools" />
-              </div>
-            </Link>
-            <p className={styles.circleLabel}>Analysis Tools</p>
-          </div>
-
-          <div className={styles.circleWrapper}>
-            <Link href="/realtor">
-              <div className={styles.circle}>
-                <img src="/images/realtors.jpeg" alt="Our Realtors" />
-              </div>
-            </Link>
-            <p className={styles.circleLabel}>Realtors</p>
-          </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 };
 

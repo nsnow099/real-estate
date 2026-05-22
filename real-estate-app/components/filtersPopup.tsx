@@ -1,6 +1,8 @@
-import "@/styles/listingSearchPage.css";
+type FiltersPopupProps = {
+  setFiltersActive: (active: boolean) => void;
+};
 
-const FiltersPopup = ({setFiltersActive}:any) => {
+const FiltersPopup = ({ setFiltersActive }: FiltersPopupProps) => {
 
     return (
         <div style={{height:'fitContent', width:'fitContent'}}>

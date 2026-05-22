@@ -29,18 +29,19 @@
   .arrow:disabled:hover {
     box-shadow: none;
     cursor: auto;
-  }
-  
-  .pageNumber:hover, .arrow:hover {
     background: #eee;
   }
   
+  .pageNumber:hover, .arrow:hover {
+    background: rgba(45, 108, 244, 0.08);
+  }
+  
   .active {
-    background: #47A4EC;
+    background: #04A6DC;
     color: white;
     font-weight: bold;
   }
   
   .active:hover {
-    background: #007bff;
+    background: #04A6DC;
   }
