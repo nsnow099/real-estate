@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 type FiltersPopupProps = {
   setFiltersActive: (active: boolean) => void;
@@ -13,6 +13,23 @@ const FiltersPopup = ({ setFiltersActive }: FiltersPopupProps) => {
     if (savedSearchRef.current) savedSearchRef.current.selectedIndex = 0;
     setFiltersActive(false);
   };
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter') return;
+      const active = document.activeElement as HTMLElement | null;
+      if (active && active.tagName === 'TEXTAREA') return;
+      if (active && active.tagName === 'BUTTON') return;
+      e.preventDefault();
+      if (formRef.current) {
+        const f = formRef.current as any;
+        if (typeof f.requestSubmit === 'function') f.requestSubmit();
+        else f.submit();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   return (
     <div className="filters-popup-wrapper" onClick={(e) => e.stopPropagation()}>
@@ -47,7 +64,7 @@ const FiltersPopup = ({ setFiltersActive }: FiltersPopupProps) => {
           </div>
 
           <div className="filter-card">
-            <span className="field-label">Price Range</span>
+            <span className="field-label">Price Range (CAD)</span>
             <div className="options range-options">
               <input type="number" min="0" placeholder="0" className="range-input" />
               -
