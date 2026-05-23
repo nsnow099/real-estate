@@ -46,10 +46,8 @@ const ListingSearchPage = () => {
                 </div>
 
                 {/* Filters Popup */}
-                <div className="overlay" style={filtersActive ? { display: 'block'} : { display: 'none' }}>
-                    <div className="filters-popup"  onClick={(e) => e.stopPropagation()}  >
-                        <FiltersPopup setFiltersActive={setFiltersActive} />
-                    </div>
+                <div className="overlay" style={filtersActive ? { display: 'flex'} : { display: 'none' }}>
+                    <FiltersPopup setFiltersActive={setFiltersActive} />
                 </div>
                 
             </main>

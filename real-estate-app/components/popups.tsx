@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Popup.module.css"; // Import CSS module
 
 interface HousePopupProps {
@@ -9,7 +9,8 @@ interface HousePopupProps {
     baths: number;
     garage?: number;
     price: string;
-    image: string;
+    image?: string; // primary image (kept for backward compatibility)
+    images?: string[]; // multiple images for carousel
     size: string; // Square footage
     kitchen: {
       features: string;
@@ -28,15 +29,39 @@ interface HousePopupProps {
 }
 
 const HousePopup: React.FC<HousePopupProps> = ({ house, onClose }) => {
+  const imgs = (house.images && house.images.length ? house.images : house.image ? [house.image] : []);
+  const [index, setIndex] = useState(0);
+
+  const prev = () => setIndex((i) => (imgs.length ? (i - 1 + imgs.length) % imgs.length : 0));
+  const next = () => setIndex((i) => (imgs.length ? (i + 1) % imgs.length : 0));
+
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.closeButtonArea} onClick={onClose}>
-          <button className={styles.closeButton} onClick={onClose}>✖</button>
+
+        <div className={styles.carousel}>
+          <button className={styles.navButton} onClick={prev} aria-label="Previous image">◀</button>
+          <div className={styles.carouselMain}>
+            {imgs.length ? (
+              <img src={imgs[index]} alt={`${house.address} image ${index + 1}`} className={styles.image} />
+            ) : (
+              <img src={house.image || "/images/house-background.jpeg"} alt={house.address} className={styles.image} />
+            )}
+          </div>
+          <button className={styles.navButton} onClick={next} aria-label="Next image">▶</button>
         </div>
-        
-        
-        <img src={house.image} alt={house.address} className={styles.image} />
+
+        <div className={styles.thumbnails}>
+          {(imgs.length ? imgs : [house.image || "/images/house-background.jpeg"]).map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`thumb-${i}`}
+              className={`${styles.thumb} ${i === index ? styles.thumbActive : ""}`}
+              onClick={() => setIndex(i)}
+            />
+          ))}
+        </div>
 
         <div className={styles.content}>
           <h2 className={styles.price}>{house.price}</h2>

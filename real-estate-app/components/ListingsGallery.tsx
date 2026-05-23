@@ -7,6 +7,13 @@ import HousePopup from "./popups"; // ✅ Correct import
 const listings = [
   {
     image: "/images/house1.jpg",
+    images: [
+      "/images/house1.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "123 Sesame Street, Grimsby, ON",
     price: "$500,000",
     beds: 4,
@@ -18,6 +25,13 @@ const listings = [
   },
   {
     image: "/images/house2.jpg",
+    images: [
+      "/images/house2.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "456 Oakwood Drive, Toronto, ON",
     price: "$650,000",
     beds: 3,
@@ -29,6 +43,13 @@ const listings = [
   },
   {
     image: "/images/house3.jpg",
+    images: [
+      "/images/house3.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "789 Pine Avenue, Mississauga, ON",
     price: "$750,000",
     beds: 5,
@@ -40,6 +61,13 @@ const listings = [
   },
   {
     image: "/images/house1.jpg",
+    images: [
+      "/images/house1.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "101 Maple Lane, Ottawa, ON",
     price: "$530,000",
     beds: 3,
@@ -51,6 +79,13 @@ const listings = [
   },
   {
     image: "/images/house2.jpg",
+    images: [
+      "/images/house2.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "222 Birch Street, Vaughan, ON",
     price: "$720,000",
     beds: 4,
@@ -62,6 +97,13 @@ const listings = [
   },
   {
     image: "/images/house3.jpg",
+    images: [
+      "/images/house3.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "333 Cedar Road, Hamilton, ON",
     price: "$480,000",
     beds: 3,
@@ -73,6 +115,13 @@ const listings = [
   },
   {
     image: "/images/house1.jpg",
+    images: [
+      "/images/house1.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "444 Elm Avenue, Brampton, ON",
     price: "$600,000",
     beds: 4,
@@ -84,6 +133,13 @@ const listings = [
   },
   {
     image: "/images/house2.jpg",
+    images: [
+      "/images/house2.jpg",
+      "/images/kitchen.jpg",
+      "/images/living-room.webp",
+      "/images/bedroom.jpg",
+      "/images/bathroom.webp",
+    ],
     address: "555 Spruce Crescent, London, ON",
     price: "$690,000",
     beds: 5,
