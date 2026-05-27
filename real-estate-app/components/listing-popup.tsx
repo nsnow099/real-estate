@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "@/styles/Popup.module.css"; // Import CSS module
+import styles from "@/styles/listing-popup.module.css"; // Import CSS module
 
-interface HousePopupProps {
+interface ListingPopupProps {
   house: {
     address: string;
     location?: string;
@@ -9,9 +9,9 @@ interface HousePopupProps {
     baths: number;
     garage?: number;
     price: string;
-    image?: string; // primary image (kept for backward compatibility)
-    images?: string[]; // multiple images for carousel
-    size: string; // Square footage
+    image?: string; //primary image
+    images?: string[]; 
+    size: string; 
     kitchen: {
       features: string;
       dimensions: string;
@@ -28,7 +28,7 @@ interface HousePopupProps {
   onClose: () => void;
 }
 
-const HousePopup: React.FC<HousePopupProps> = ({ house, onClose }) => {
+const ListingPopup: React.FC<ListingPopupProps> = ({ house, onClose }) => {
   const imgs = (house.images && house.images.length ? house.images : house.image ? [house.image] : []);
   const [index, setIndex] = useState(0);
 
@@ -38,7 +38,7 @@ const HousePopup: React.FC<HousePopupProps> = ({ house, onClose }) => {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
-
+        WORK IN PROGRESS
         <div className={styles.carousel}>
           <button className={styles.navButton} onClick={prev} aria-label="Previous image">◀</button>
           <div className={styles.carouselMain}>
@@ -73,24 +73,24 @@ const HousePopup: React.FC<HousePopupProps> = ({ house, onClose }) => {
             {house.garage !== undefined && <span>🚗 {house.garage} Garage</span>}
           </div>
 
-          <div className={styles.section}>
+          <div className={styles.featureSection}>
             <h3>🏠 House Details</h3>
             <p>📏 Size: {house.size} sq. ft.</p>
           </div>
 
-          <div className={styles.section}>
+          <div className={styles.featureSection}>
             <h3>🍽️ Kitchen</h3>
             <p>🔹 Features: {house.kitchen.features}</p>
             <p>📐 Dimensions: {house.kitchen.dimensions}</p>
           </div>
 
-          <div className={styles.section}>
+          <div className={styles.featureSection}>
             <h3>🛋️ Living Room</h3>
             <p>🔹 Features: {house.livingRoom.features}</p>
             <p>📐 Dimensions: {house.livingRoom.dimensions}</p>
           </div>
 
-          <div className={styles.section}>
+          <div className={styles.featureSection}>
             <h3>🏡 Basement</h3>
             <p>🔹 Type: {house.basement.type}</p>
             <p>🔹 Features: {house.basement.features}</p>
@@ -103,4 +103,4 @@ const HousePopup: React.FC<HousePopupProps> = ({ house, onClose }) => {
   );
 };
 
-export default HousePopup;
+export default ListingPopup;

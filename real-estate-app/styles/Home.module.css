@@ -1,45 +1,10 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .container {
   overflow-y: auto;
   overflow-x: hidden;
-  /* min-height: 100vh; */
   flex-grow: 1;
   background: linear-gradient(to bottom, #f5f5f5, #e9e9e9, #f4f3f3, #b1b1b1);
   color: white;
   position: relative;
-}
-
-.header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  padding: 16px 24px;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
-}
-
-.main {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-  padding: 20px 24px 40px;
-}
-
-/* Hamburger Menu */
-.menuIcon {
-  font-size: 24px;
-  cursor: pointer;
 }
 
 .backgroundPicContainer {
@@ -51,7 +16,6 @@
   align-items: center;
 }
 
-/* Website Name Background (Moved Up Higher) */
 .websiteNameContainer {
   width: 50%;
   display: flex;
@@ -65,7 +29,6 @@
   margin-right: auto;
 }
 
-/* Search Bar (Much Wider) */
 .searchContainer {
   position: relative;
   display: flex;
@@ -78,19 +41,17 @@
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
 }
 
-/* Search Input */
 .searchInput {
   flex: 1;
   padding: 10px;
   font-size: 18px;
   border: none;
-  border-radius: 20px;  /* Rounded corners */
+  border-radius: 20px;
   outline: none;
 }
 
-/* Search Button (Fixing Color) */
 .searchButton {
-  margin-left: 10px;  /* Spacing between input and button */
+  margin-left: 10px;  
   padding: 10px 15px;
   font-size: 16px;
   background: #04A6DC;
@@ -98,7 +59,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 20px;  /* Rounded corners */
+  border-radius: 20px;  
   transition: background 0.3s;
 }
 

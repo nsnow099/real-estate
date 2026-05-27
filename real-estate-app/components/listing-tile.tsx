@@ -1,4 +1,4 @@
-import styles from "@/styles/ListingTile.module.css";
+import styles from "@/styles/listing-tile.module.css";
 
 interface ListingTileProps {
   image: string;

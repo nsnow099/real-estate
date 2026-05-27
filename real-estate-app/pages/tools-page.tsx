@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import HamburgerMenu from "@/components/HamburgerMenu";
-import styles from "@/styles/Home.module.css";
-import ToolsPageControls from "@/components/toolsPageControls";
-import MortgageCalculator from "@/components/mortgageCalculator";
+import Header from "@/components/header";
+import styles from "@/styles/tools-page.module.css";
 
 const AnalysisTools = () => {
     const router = useRouter();
@@ -24,11 +22,9 @@ const AnalysisTools = () => {
     }, [view]);
 
     return (
-        <div>
-            <header className={styles.header}>
-                <HamburgerMenu /> 
-            </header>
-            <main className={styles.main}>
+        <div className="page">
+            <Header /> 
+            <main>
                 Under construction
             </main>
         </div>

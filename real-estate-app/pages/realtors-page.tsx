@@ -1,15 +1,59 @@
 // realtor.tsx
-import React, { useState } from "react";
-import styles from '@/styles/realtor.module.css';
-import HamburgerMenu from "@/components/HamburgerMenu";
-import LoginButton from "@/components/LoginButton";
-import homeStyles from "@/styles/Home.module.css";
-import Pagination from "@/components/Pagination";
+import { useState } from "react";
+import styles from '@/styles/realtors-page.module.css';
+import Header from "@/components/header";
+import Pagination from "@/components/pagination";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
 
 const Realtor: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState("");
   const [rating, setRating] = useState("");
   const [specialty, setSpecialty] = useState("");
   const [language, setLanguage] = useState("");
+
+  const filters = [
+    {
+      name: "rating",
+      value: rating,
+      setter: setRating,
+      options: [
+        { value: "", label: "Rating" },
+        { value: "5stars", label: "♦♦♦♦♦" },
+        { value: "4stars", label: "♦♦♦♦" },
+        { value: "3stars", label: "♦♦♦" },
+        { value: "2stars", label: "♦♦" },
+        { value: "1stars", label: "♦" },
+      ],
+    },
+    {
+      name: "specialty",
+      value: specialty,
+      setter: setSpecialty,
+      options: [
+        { value: "", label: "Specialty" },
+        { value: "residential", label: "Residential" },
+        { value: "commercial", label: "Commercial" },
+        { value: "luxury", label: "Luxury" },
+      ],
+    },
+    {
+      name: "language",
+      value: language,
+      setter: setLanguage,
+      options: [
+        { value: "", label: "Language" },
+        { value: "english", label: "English" },
+        { value: "french", label: "French" },
+      ],
+    },
+  ];
+
+  const clearFilters = () => {
+    setRating("");
+    setSpecialty("");
+    setLanguage("");
+  };
 
   const agents = [
     {
@@ -71,81 +115,44 @@ const Realtor: React.FC = () => {
   ];
 
   return (
-    <div className={homeStyles.page}>
-      <header className={homeStyles.header}>
-        <HamburgerMenu />
-      </header>
+    <div className="page">
+      <Header />
 
       <div className={styles.container}>
-        {/* <h1 className={styles.title}>Discover Agents</h1> */}
         <div className={styles.searchAndFilters}>
-          <div className={styles.searchContainer}>
+          <div className={styles.searchField}> 
             <input
+              className={styles.searchInput}
               type="text"
-              placeholder="Search by name or location"
-              className={styles.searchBox1}
+              placeholder="Search by location, address or postal code"
+              name="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <img
-              src="/images/searchicon.jpg"
-              alt="Search Icon"
-              width={48}
-              height={48}
-              className={styles.searchIcon}
-            />
-          </div>
-
-          <div className={styles.filtersContainer}>
-            <div className={styles.dropdownWrapper}>
-              <select
-                className={styles.filterButtonRating}
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-              >
-                <option value="">Rating</option>
-                <option value="5stars">♦♦♦♦♦</option>
-                <option value="4stars">♦♦♦♦</option>
-                <option value="3stars">♦♦♦</option>
-                <option value="2stars">♦♦</option>
-                <option value="1stars">♦</option>
-              </select>
-            </div>
-
-            <div className={styles.dropdownWrapper}>
-              <select
-                className={styles.filterButtonSpecialty}
-                value={specialty}
-                onChange={(e) => setSpecialty(e.target.value)}
-              >
-                <option value="">Specialty</option>
-                <option value="residential">Residential</option>
-                <option value="commercial">Commercial</option>
-                <option value="luxury">Luxury</option>
-              </select>
-            </div>
-
-            <div className={styles.dropdownWrapper}>
-              <select
-                className={styles.filterButtonLanguage}
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-              >
-                <option value="">Language</option>
-                <option value="english">English</option>
-                <option value="french">French</option>
-              </select>
-            </div>
-
-            <button
-              className={styles.clearFiltersButton}
-              onClick={() => {
-                setRating("");
-                setSpecialty("");
-                setLanguage("");
-              }}
-            >
-              Clear All Filters
+            <button className={styles.searchIconBox} type="button">
+              <FontAwesomeIcon className={styles.searchIcon} icon={faMagnifyingGlass} />
             </button>
           </div>
+
+          {filters.map(({ name, value, setter, options }) => (
+            <div key={name} className={styles.realtorFilterItem}>
+              <select
+                className={styles.selectInput}
+                value={value}
+                onChange={(e) => setter(e.target.value)}
+              >
+                {options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
+
+          <button className={styles.clearFiltersButton} type="button" onClick={clearFilters}>
+            Clear All Filters
+          </button>
         </div>
 
         <h1 className={styles.agentCount}>100 agents found</h1>

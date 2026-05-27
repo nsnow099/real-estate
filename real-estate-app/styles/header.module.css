@@ -1,3 +1,19 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 16px 24px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
 .topNav {
   display: flex;
   gap: 14px;
@@ -70,4 +86,26 @@
   .brandContainer {
     width: 100%;
   }
+}
+
+.loginButton {
+  height: 40px;
+  width: fit-content;
+  position: relative;
+  margin-left: auto;
+  background: #04A6DC;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 10px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.loginButton:hover {
+  background: #3e8cc8;
 }

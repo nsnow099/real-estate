@@ -1,129 +1,113 @@
-/* realtor.module.css */
-
 .container {
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  padding: 1rem;
-  /* box-sizing: border-box; */
-  background: linear-gradient(to bottom, #f5f5f5, #e9e9e9, #f4f3f3, #b1b1b1);
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+  box-sizing: border-box;
   color: white;
   position: relative;
 }
 
-.breadImage {
-  border-radius: 0.5rem;
-}
-
 .searchAndFilters {
-  display: inline-flex;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin: 0 auto 1rem;
+  width: 100%;
 }
 
-.searchContainer {
+.searchField {
   position: relative;
-  display: inline-block;
-  height: fit-content;
-  width: fit-content;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  width: min(100%, 500px);
+  max-width: 500px;
+  height: 40px;
+  border-radius: 45px;
+  overflow: hidden;
 }
 
-.searchBox1,
-.searchBox2 {
-  width: min(90vw, 500px);
-  height: 2.5rem;
+.searchField:has(input:focus) {
+  box-shadow: 0 1px 2px rgb(178, 187, 196);
+}
+
+.searchInput {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding-left: 12px;
+  background-color: #ebeaea;
+  box-shadow: inset 0 -0.01px 2px rgb(178, 187, 196);
+}
+
+.searchInput:focus {
+  outline: none;
   background-color: white;
-  color: black;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  padding: 0 0.75rem;
-  font-size: 0.95rem;
+  box-shadow: none;
+}
+
+.searchIconBox {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border-radius: 45px;
+  border: none;
+  background: none;
+}
+
+.searchIconBox:hover {
+  background-color: #e1e1e1;
 }
 
 .searchIcon {
-  position: relative;
-  top: 7px;
-  right: 35px;
-  width: 27px;
-  height: 27px;
-  border-radius: 0.5rem;
   cursor: pointer;
+  font-size: 15px;
 }
 
-.filtersContainer {
-  position: relative;
-  right: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+.selectInput {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #d8dbe0;
+  background: white;
+  color: #25303b;
+  font-size: 0.95rem;
+  width: 100%;
+  min-width: 100px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1,1 L11,1 L6,7 Z' fill='%234b90df' stroke='%234b90df' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: calc(100% - 16px) center;
+  background-size: 12px 8px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
 }
 
-.filterButtonBuying,
-.filterButtonSelling,
-.filterButtonRating,
-.filterButtonSpecialty,
-.filterButtonLanguage,
-.filterButtonPriceRange {
+.realtorFilterItem {
+  min-width: 140px;
+  flex: 0 0 140px;
+}
+
+.clearFiltersButton {
   background-color: #fef9c3;
   font-weight: 700;
   color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border: 1px solid #ccc;
-  padding: 0 0.75rem;
-  height: 2.5rem;
+  padding: 0 1rem;
+  height: 2.75rem;
   cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.filterButtonPriceRange {
-  width: 8rem;
-  border: none;
-}
-
-.dropdownContainer {
-  position: relative;
-}
-
-.dropdownContent {
-  position: absolute;
-  top: 3.2rem;
-  left: 0;
-  width: 10rem;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.priceSlider {
-  width: 100%;
-  height: 8px;
-  background: #ddd;
-  border-radius: 5px;
-  outline: none;
-}
-
-.priceSlider:hover {
-  background: #fef9c3;
-}
-
-.priceSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #f59e0b;
-  border-radius: 50%;
-  cursor: pointer;
+  font-size: 0.95rem;
 }
 
 .agentCount {
@@ -198,13 +182,13 @@
 }
 
 .agentRating {
-  color: #47A4EC; /* bright blue rating */
+  color: #04A6DC; 
   font-weight: 700;
 }
 
 .agentName::before {
   content: "Name: ";
-  color: #888; /* muted label */
+  color: #888; 
   font-weight: 600;
 }
 

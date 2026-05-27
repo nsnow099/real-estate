@@ -113,13 +113,12 @@
   font-weight: bold;
 }
 
-/* Section styling */
-.section {
+.featureSection {
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }
 
-.section h3 {
+.featureSection h3 {
   font-size: 17px;
   margin-bottom: 5px;
   color: #333;

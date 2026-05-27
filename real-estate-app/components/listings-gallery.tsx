@@ -1,9 +1,8 @@
-import ListingTile from "./ListingTile";
-import styles from "@/styles/ListingsGallery.module.css";
+import ListingTile from "./listing-tile";
+import styles from "@/styles/listings-gallery.module.css";
 import { useState } from "react";
-import HousePopup from "./popups"; // ✅ Correct import
+import ListingPopup from "./listing-popup"; 
 
-// Updated Listings with Extra Details
 const listings = [
   {
     image: "/images/house1.jpg",
@@ -164,7 +163,7 @@ const ListingsGallery = () => {
 
       {/* Show popup when a house is selected */}
       {selectedHouse && (
-        <HousePopup house={selectedHouse} onClose={() => setSelectedHouse(null)} />
+        <ListingPopup house={selectedHouse} onClose={() => setSelectedHouse(null)} />
       )}
     </div>
   );

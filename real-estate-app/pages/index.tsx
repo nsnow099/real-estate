@@ -1,8 +1,6 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-import LoginButton from "@/components/LoginButton";
-import HamburgerMenu from "@/components/HamburgerMenu";
+import styles from "@/styles/home.module.css";
+import Header from "@/components/header";
 import { useState, useEffect, useRef } from "react";
 
 const HomePage = () => {
@@ -37,14 +35,12 @@ const HomePage = () => {
   }, {} as Record<string, string[]>);
 
   return (
-    <div className={styles.page}>
+    <div className="page">
       <Head>
         <title>Realest Estate</title>
       </Head>
 
-      <header className={styles.header}>
-        <HamburgerMenu />
-      </header>
+      <Header />
 
       <div className={styles.container}>
         <div className={styles.backgroundPicContainer}>
