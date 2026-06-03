@@ -4,7 +4,7 @@ A modern real estate application frontend built with **TypeScript**, **React**, 
 
 ## About This Project
 
-This project demonstrates the **full HCI design and development lifecycle** — from research and user-centered design principles through to a polished, responsive frontend implementation. The focus is on creating an intuitive, accessible, and engaging user experience for real estate browsing and agent discovery.
+This project demonstrates the **full HCI design and development lifecycle** — from research and user-centered design principles through to a polished, responsive frontend implementation. The focus is specifically on creating an intuitive, accessible, and engaging user experience for real estate browsing and agent discovery.
 
 **Project Type:** Academic group project (3 contributors)  
 **Course:** COSC 3P94 - Human-Computer Interaction  
